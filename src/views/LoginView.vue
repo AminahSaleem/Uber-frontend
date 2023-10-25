@@ -1,11 +1,11 @@
 <template>
     <div class="pt-16">
         <h1 class="text-3xl font-semibold mb-4">Enter your phone number</h1>
-        <form action="#">
+        <form action="#" @submit="handleLogin">
             <div class="overflow-hidden shadow sm:rounded-md max-w-sm mx-auto text-left">
                 <div class="bg-white px-4 py-5 sm:p-6">
                     <div>
-                        <input type="text" vmaska data-maska="# (###) ###-####" name="phone" id="phone" placeholder="1 (234) 567-8910"
+                        <input type="text" v-maska data-maska="# (###) ###-####" name="phone" id="phone" placeholder="1 (234) 567-8910"
                         class="mt-1 block w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:border-black focus:outline-none">
                     </div>
                 </div>
@@ -20,6 +20,10 @@
 
 <script setup>
     import {vMaska} from 'maska'
+
+    const handleLogin = () => {
+        console.log('logging in')
+    }
 </script>
 
 <style>
