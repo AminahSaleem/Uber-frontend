@@ -20,9 +20,14 @@
 
 <script setup>
     import {vMaska} from 'maska'
+    import {reactive} from 'vue'
+
+    const data = reactive({
+        phone:null
+    })
 
     const handleLogin = () => {
-        console.log('logging in')
+        console.log(data.phone)
     }
 </script>
 
