@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-
+    import {vMaska} from 'maska'
 </script>
 
 <style>
