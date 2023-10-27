@@ -28,7 +28,7 @@
     })
 
     const handleLogin = () => {
-        console.log(data.phone)
+        axios.post('http://localhost/api/login', data)
     }
 </script>
 
