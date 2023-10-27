@@ -28,13 +28,15 @@
     })
 
     const handleLogin = () => {
-        axios.post('http://localhost/api/login', credentials)
+        axios.post('http://localhost/api/login', {
+            phone: credentials.phone.replaceAll(' ', '').replace('(', '').replace(')', '').replace('-', '')
+        })
         .then((response)=> {
             console.log(response.data)
         })
         .catch((error)=> {
             console.log(error)
-            alert(error.response.data.message)
+            // alert(error.response.data.message)
         })
     }
 </script>
