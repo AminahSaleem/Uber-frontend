@@ -23,12 +23,19 @@
     import {reactive} from 'vue'
     import axios from 'axios'
 
-    const data = reactive({
+    const credentials = reactive({
         phone:null
     })
 
     const handleLogin = () => {
-        axios.post('http://localhost/api/login', data)
+        axios.post('http://localhost/api/login', credentials)
+        /TouchEvent((response)=> {
+            console.log(response.data)
+        })
+        .catch((error)=> {
+            console.log(error)
+            alert(error.response.data.message)
+        })
     }
 </script>
 
