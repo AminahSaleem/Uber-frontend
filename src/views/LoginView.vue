@@ -31,7 +31,7 @@
   baseURL: 'https://swiftride.000webhostapp.com'
 });
 
-    const handleLogin = () => {
+    const handleLogin = (credentials) => {
         api.post('/api/login', {
             phone: credentials.phone.replaceAll(' ', '').replace('(', '').replace(')', '').replace('-', '')
         })
