@@ -32,7 +32,7 @@
 });
 
     const handleLogin = () => {
-        axios.post('http://localhost:5173/api/login', {
+        axios.post('/api/login', {
             phone: credentials.phone.replaceAll(' ', '').replace('(', '').replace(')', '').replace('-', '')
         })
         .then((response) => {
