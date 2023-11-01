@@ -31,18 +31,19 @@
   baseURL: 'https://swiftride.000webhostapp.com'
 });
 
-    const handleLogin = (credentials) => {
-        api.post('/api/login', {
-            phone: credentials.phone.replaceAll(' ', '').replace('(', '').replace(')', '').replace('-', '')
-        })
-        .then((response) => {
-            console.log(response.data)
-        })
-        .catch((error) => {
-            console.log(error)
-            alert(error.response.data.message)
-        })
-    }
+const handleLogin = (credentials) => {
+  const formattedPhone = credentials.phone.replace(/\s/g, '').replace('(', '').replace(')', '').replace('-', '');
+  api.post('/api/login', {
+      phone: formattedPhone
+  })
+  .then((response) => {
+      console.log(response.data);
+  })
+  .catch((error) => {
+      console.log(error);
+      alert(error.response.data.message);
+  });
+};
 </script>
 
 <style>
