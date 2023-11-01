@@ -31,18 +31,22 @@
   baseURL: 'https://swiftride.000webhostapp.com'
 });
 
-const handleLogin = (credentials) => {
-  const formattedPhone = credentials.phone.replace(/\s/g, '').replace('(', '').replace(')', '').replace('-', '');
-  api.post('/api/login', {
+const handleLogin = () => {
+  if (credentials && credentials.phone) {
+    const formattedPhone = credentials.phone.replace(/\s/g, '').replace(/\(/g, '').replace(/\)/g, '').replace(/-/g, '');
+    api.post('/login', {
       phone: formattedPhone
-  })
-  .then((response) => {
+    })
+    .then((response) => {
       console.log(response.data);
-  })
-  .catch((error) => {
+    })
+    .catch((error) => {
       console.log(error);
       alert(error.response.data.message);
-  });
+    });
+  } else {
+    console.error('Invalid phone number provided.');
+  }
 };
 </script>
 
