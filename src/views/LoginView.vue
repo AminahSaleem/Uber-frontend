@@ -5,7 +5,7 @@
             <div class="overflow-hidden shadow sm:rounded-md max-w-sm mx-auto text-left">
                 <div class="bg-white px-4 py-5 sm:p-6">
                     <div>
-                        <input type="text" v-maska data-maska="## ### ######" v-model="credentials.phone" name="phone" id="phone" placeholder="(+44) 07 123 456789"
+                        <input type="text" v-maska data-maska="## ### ######" v-model="credentials.phone" name="phone" id="phone" placeholder=" 07 123 456789"
                         class="mt-1 block w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:border-black focus:outline-none">
                     </div>
                 </div>
@@ -27,16 +27,20 @@
         phone: null
     })
 
+    const api = axios.create({
+  baseURL: 'https://swiftride.000webhostapp.com'
+});
+
     const handleLogin = () => {
-        axios.post('http://localhost/api/login', {
+        axios.post('http://localhost:5173/api/login', {
             phone: credentials.phone.replaceAll(' ', '').replace('(', '').replace(')', '').replace('-', '')
         })
-        .then((response)=> {
+        .then((response) => {
             console.log(response.data)
         })
-        .catch((error)=> {
+        .catch((error) => {
             console.log(error)
-            // alert(error.response.data.message)
+            alert(error.response.data.message)
         })
     }
 </script>
