@@ -28,13 +28,13 @@
     })
 
     const api = axios.create({
-  baseURL: 'https://swiftride.000webhostapp.com'
+      BASE_URL: 'https://swiftride.000webhostapp.com'
 });
 
 const handleLogin = () => {
   if (credentials && credentials.phone) {
     const formattedPhone = credentials.phone.replace(/\s/g, '').replace(/\(/g, '').replace(/\)/g, '').replace(/-/g, '');
-    api.post('/login', {
+    api.post('/api/login', {
       phone: formattedPhone
     })
     .then((response) => {
